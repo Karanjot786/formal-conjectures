@@ -13,25 +13,27 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-
 import FormalConjectures.Util.ProblemImports
 
 /-!
-# Erdős Problem 203
+# Erdős Problem 396
 
-*Reference:* [erdosproblems.com/203](https://www.erdosproblems.com/203)
+*Reference:* [erdosproblems.com/396](https://www.erdosproblems.com/396)
 -/
 
-namespace Erdos203
+namespace Erdos396
+
+open Nat
 
 /--
-Is there an integer $m$ with $(m, 6) = 1$ such that none of $2^k \cdot 3^\ell \cdot m + 1$ are prime,
-for any $k, \ell \ge 0$?
+Is it true that for every $k$ there exists $n$ such that
+$$\prod_{0\leq i\leq k}(n-i) \mid \binom{2n}{n}?$$
 -/
-@[category research open, AMS 5]
-theorem erdos_203 : (∃ m, m.Coprime 6 ∧ ∀ k l, ¬ (2^k * 3^l * m + 1).Prime) ↔ answer(sorry) := by
+@[category research open, AMS 11]
+theorem erdos_396 : (∀ k : ℕ, ∃ n : ℕ, descFactorial n (k + 1) ∣ centralBinom n) ↔ answer(sorry) := by
   sorry
 
---TODO(rdivyanshu): add statements about covering system and odd integers `m` such that none of 2^k*m + 1 is prime
 
-end Erdos203
+-- TODO(firsching): formalise the additional material
+
+end Erdos396
